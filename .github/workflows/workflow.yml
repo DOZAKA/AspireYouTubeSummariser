@@ -11,12 +11,12 @@ permissions:
   contents: read
 
 jobs:
-  deploy-test:
+  deploy-:
     uses: ./.github/workflows/deploy.yml
     with:
       environmentType: Production
       resourceGroupName: rg-DOZAKA
-      reviewApiUrl: https://polite-ground-030dc3103.4.azurestaticapps.net/api/v1
+      reviewApiUrl: ${{ secrets.REVIEW_API_URL }}
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
