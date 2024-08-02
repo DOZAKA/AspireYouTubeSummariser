@@ -16,7 +16,6 @@ jobs:
     with:
       environmentType: Production
       resourceGroupName: rg-DOZAKA
-      Endpoint: https://polite-ground-030dc3103.4.azurestaticapps.net/api/v1
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
