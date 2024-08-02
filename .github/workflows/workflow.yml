@@ -1,22 +1,46 @@
 name: azure-openai-proxy
 
 on:
+  workflow_dispatch:
   push:
+    # Run when commits are pushed to mainline branch (main or master)
+    # Set this to the mainline branch you are using
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  deploy-:
-    uses: ./.github/workflows/deploy.yml
-    with:
-      environmentType: Production
-      resourceGroupName: rg-DOZAKA
-    secrets:
+  build:
+    runs-on: ubuntu-latest
+    env:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_ENV_NAME: Production
+      AZURE_LOCATION: koreacentral
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install azd
+        uses: Azure/setup-azd@v1.0.0
+
+      - name: Install .NET Aspire workload
+        run: dotnet workload install aspire
+
+      - name: Log in with Azure (Federated Credentials)
+        run: |
+          azd auth login `
+            --client-id "$Env:AZURE_CLIENT_ID" `
+            --federated-credential-provider "github" `
+            --tenant-id "$Env:AZURE_TENANT_ID"
+        shell: pwsh
+
+      - name: Provision Infrastructure
+        run: azd provision --no-prompt
+
+      - name: Deploy Application
+        run: azd deploy --no-prompt
