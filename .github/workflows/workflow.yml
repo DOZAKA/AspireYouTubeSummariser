@@ -16,9 +16,8 @@ jobs:
     with:
       environmentType: Production
       resourceGroupName: rg-DOZAKA
-      reviewApiUrl: ${{ secrets.REVIEW_API_URL }}
+      Endpoint: https://polite-ground-030dc3103.4.azurestaticapps.net/api/v1
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      reviewApiKey: ${{ secrets.REVIEW_API_KEY }}
