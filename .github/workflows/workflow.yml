@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update appsettings.json
-        run: echo -e $APPSETTINGS_PRODUCTION >> ./AspireYouTubeSummariser.AppHost/appsettings.json
+        run: echo -e "${{ secrets.APPSETTINGS_PRODUCTION }}" >> ./AspireYouTubeSummariser.AppHost/appsettings.json
         
       - name: Check appsettings.json
         run: cat ./AspireYouTubeSummariser.AppHost/appsettings.json
