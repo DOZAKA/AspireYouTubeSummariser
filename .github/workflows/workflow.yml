@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update appsettings.json
-        run: find ./AspireYouTubeSummariser.AppHost -name "*.json" -exec sed -i 's/OPENAI_API_KEY/$Env:OPENAI_API_KEY' {} \;
+        run: echo -e "$Env:OPENAI_API_KEY" >> ./AspireYouTubeSummariser.AppHost/appsettings.json
         
       - name: Check appsettings.json
         run: cat ./AspireYouTubeSummariser.AppHost/appsettings.json
