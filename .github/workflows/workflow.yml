@@ -58,13 +58,17 @@ jobs:
             --tenant-id "$($info.tenantId)"
         shell: pwsh
 
-      - name: Provision Infrastructure
+      - name: Azure pipeline 
         run: |
-          azd provision --no-prompt
+          azd pipeline config
 
-      - name: Deploy Application
-        run: |
-          azd deploy --no-prompt
+      #- name: Provision Infrastructure
+      #  run: |
+      #    azd provision --no-prompt
+
+      #- name: Deploy Application
+      #  run: |
+      #    azd deploy --no-prompt
 
       #- name: Init Application
       #  run: azd init -e $AZURE_ENV_NAME
