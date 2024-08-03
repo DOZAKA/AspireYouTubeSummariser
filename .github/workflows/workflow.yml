@@ -24,6 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Update appsettings.json
+        run: echo -e "$APPSETTINGS_PRODUCTION" >> ./AspireYouTubeSummariser.AppHost/appsettings.json
+        env:
+          APPSETTINGS_PRODUCTION: ${{secrets.APPSETTINGS_PRODUCTION}}
+
       - name: Install azd
         uses: Azure/setup-azd@v1.0.0
 
