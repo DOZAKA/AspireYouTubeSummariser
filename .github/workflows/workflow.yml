@@ -70,10 +70,10 @@ jobs:
       #  run: |
       #    azd deploy --no-prompt
 
-      #- name: Init Application
-      #  run: azd init -e $AZURE_ENV_NAME
+      - name: Init Application
+        run: azd init -e $AZURE_ENV_NAME
 
-      #- name: Deploy Application
-      #  run: azd up
+      - name: Deploy Application
+        run: azd up
 
 #https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-github-actions?tabs=linux&pivots=github-actions
