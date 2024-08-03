@@ -24,7 +24,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AspireYouTubeSummariser.AppHost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+271db0fdd1a6c242e9a49d43a5b4e8dca1af56ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7f8f23132471e15969b0097cd58715967723ebc")]
 [assembly: System.Reflection.AssemblyProductAttribute("AspireYouTubeSummariser.AppHost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AspireYouTubeSummariser.AppHost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
