@@ -31,6 +31,12 @@ jobs:
         env:
           APPSETTINGS_PRODUCTION: ${{secrets.APPSETTINGS_PRODUCTION}}
 
+      - name: Update appsettings.json
+        shell: bash
+        run: echo -e "$APPSETTINGS_DEVELOPMENT" > ./AspireYouTubeSummariser.AppHost/appsettings.Development.json
+        env:
+          APPSETTINGS_DEVELOPMENT: ${{secrets.APPSETTINGS_DEVELOPMENT}}
+
       - name: Install azd
         uses: Azure/setup-azd@v1.0.0
 
