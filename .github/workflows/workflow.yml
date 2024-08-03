@@ -26,7 +26,7 @@ jobs:
 
       - name: Update appsettings.json
         shell: bash
-        run: echo -e "$APPSETTINGS_PRODUCTION" >> ./AspireYouTubeSummariser.AppHost/appsettings.json
+        run: echo -e "$APPSETTINGS_PRODUCTION" > ./AspireYouTubeSummariser.AppHost/appsettings.json
         env:
           APPSETTINGS_PRODUCTION: ${{secrets.APPSETTINGS_PRODUCTION}}
 
