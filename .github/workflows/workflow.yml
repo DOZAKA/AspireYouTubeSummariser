@@ -27,7 +27,7 @@ jobs:
         run: echo -e "${{ secrets.APPSETTINGS_PRODUCTION }}" > ./AspireYouTubeSummariser.AppHost/appsettings.json
         
       - name: Check appsettings.json
-        run: cat ./AspireYouTubeSummariser.AppHost/appsettings.json
+        run: grep "ApiKey" ./AspireYouTubeSummariser.AppHost/appsettings.json
 
       - name: Install azd
         uses: Azure/setup-azd@v1.0.0
