@@ -17,7 +17,6 @@ jobs:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      APPSETTINGS_PRODUCTION: ${{ secrets.APPSETTINGS_PRODUCTION }}
       AZURE_ENV_NAME: Production
       AZURE_LOCATION: koreacentral
     steps:
@@ -25,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update appsettings.json
-        run: echo -e "${{ secrets.APPSETTINGS_PRODUCTION }}" >> ./AspireYouTubeSummariser.AppHost/appsettings.json
+        run: echo -e "${{ secrets.APPSETTINGS_PRODUCTION }}" > ./AspireYouTubeSummariser.AppHost/appsettings.json
         
       - name: Check appsettings.json
         run: cat ./AspireYouTubeSummariser.AppHost/appsettings.json
