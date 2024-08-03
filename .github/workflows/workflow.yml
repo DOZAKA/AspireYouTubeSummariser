@@ -10,7 +10,7 @@ permissions:
   id-token: write
   contents: read
 
-jobs:ㅊ
+jobs:
   build:
     runs-on: ubuntu-latest
     env:
